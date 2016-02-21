@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>BrowseApp</title>
+    </head>
+    <body>
+		<div id="search" style="padding-top: 40px;">
+			URL
+			<input type="text" id="url" size="50" value="http://120.124.161.124/Module1/Main" />
+			<br>
+			<br>
+			<input type="button" id="comfirm" value="連線" onclick="SearchClick()" style="width: 100px;height: 50px;font-size: 20px;"/>
+		</div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript">
+		
+            //app.initialize();
+			//document.addEventListener("deviceready", onDeviceReady, false);
+			//function onDeviceReady() {
+
+			//}		
+			function callback(msg){
+				//驗證成功
+				alert(msg);
+			}
+			function SearchClick(){
+				var url = $("#url").val();
+				cordova.exec(callback, function(err) {callback('FAIL');}, "BrowserPlugin", "browse", [url]);
+			}
+
+        </script>
+    </body>
+</html>

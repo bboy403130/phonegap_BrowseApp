@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>BrowseApp</title>
+    </head>
+    <body>
+		<div id="search" style="padding-top: 20px;">
+			<input textfield id="url" size="50" />
+			<input type="button" id="comfirm" value="確認" onclick="SearchClick()"/>
+		</div>
+        <div id="MyBrowser">
+           <iframe id="MyFrame" src="http://120.124.161.124/Module1/Main" scrolling="yes"></iframe>
+        </div>
+
+        <<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript">
+		
+            //app.initialize();
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			function onDeviceReady() {
+					cordova.exec(callback, function(err) {callback('Nothing to echo.');}, "Echo", "echo", ["HELLO"]);
+			}		
+			function callback(msg){
+				alert(msg);
+			}
+			function SearchClick(){
+				$('#MyFrame').attr('src', $("#url").val())
+			}
+			//var w = $(window).width();
+			//var h = $(window).height();
+			//$("#MyFrame").width("100%");
+			//$("#MyFrame").height(h);
+        </script>
+    </body>
+</html>
