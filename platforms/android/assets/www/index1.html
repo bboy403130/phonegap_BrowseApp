@@ -1,50 +1,46 @@
-<!DOCTYPE html>
-
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>BrowseApp</title>
-    </head>
-    <body>
-		<div id="search" style="padding-top: 40px;">
-		THIS IS INDEX1
-		<br>
-			URL
-			<input type="text" id="url" size="50" value="http://120.124.161.124/Module1/Main" />
-			<br>
-			<br>
-			<input type="button" id="comfirm" value="連線" onclick="SearchClick($('#url').val())" style="width: 100px;height: 50px;font-size: 20px;"/>
-			<br>
-			<br>
-			<input type="text" id="url1" size="50" value="file:///android_asset/www/index1.html" />
-			<br>
-			<input type="button"  value="連線" onclick="SearchClick($('#url1').val())" style="width: 100px;height: 50px;font-size: 20px;"/>
-			
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+	
+	<link rel="stylesheet" href="themes/test.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>It Worked!</h1>
 		</div>
-
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
-        <script type="text/javascript">
-		
-            //app.initialize();
-			//document.addEventListener("deviceready", onDeviceReady, false);
-			//function onDeviceReady() {
-
-			//}		
-			function callback(msg){
-				//驗證成功
-				alert(msg);
-			}
-			function SearchClick(url){
-				cordova.exec(callback, function(err) {callback('FAIL');}, "BrowserPlugin", "browse", [url]);
-			}
-
-        </script>
-    </body>
+		<div data-role="content" data-theme="a">
+			<p>Your theme was successfully downloaded. You can use this page as a reference for how to link it up!</p>
+			<pre>
+<strong>&lt;link rel=&quot;stylesheet&quot; href=&quot;themes/test.min.css&quot; /&gt;</strong>
+<strong>&lt;link rel=&quot;stylesheet&quot; href=&quot;themes/jquery.mobile.icons.min.css&quot; /&gt;</strong>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css&quot; /&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-1.11.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js&quot;&gt;&lt;/script&gt;
+			</pre>
+			<p>This is content color swatch "A" and a preview of a <a href="#" class="ui-link">link</a>.</p>
+			<label for="slider1">Input slider:</label>
+			<input type="range" name="slider1" id="slider1" value="50" min="0" max="100" data-theme="a" />
+			<fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+			<legend>Cache settings:</legend>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="on" checked="checked" />
+			<label for="radio-choice-a1">On</label>
+			<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="off"  />
+			<label for="radio-choice-b1">Off</label>
+			</fieldset>
+		</div>
+	</div>
+</body>
 </html>
