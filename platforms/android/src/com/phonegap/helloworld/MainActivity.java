@@ -46,7 +46,9 @@ public class MainActivity extends CordovaActivity
         	//e.printStackTrace();
         	Log.e("tony",e.getMessage());
         }
-        
+        Log.e("tony launchUrl","launchUrl"+launchUrl);
+        Log.i("tony launchUrl","launchUrl"+launchUrl);
+        System.out.println("tonysystemlog"+launchUrl);
         loadUrl(launchUrl);
 
         
